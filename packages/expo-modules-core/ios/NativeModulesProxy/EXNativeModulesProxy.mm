@@ -334,7 +334,7 @@ RCT_EXPORT_METHOD(callMethod:(NSString *)moduleName methodNameOrKey:(id)methodNa
     NSString *className = NSStringFromClass(moduleClass);
 
     if ([moduleClass isSubclassOfClass:[RCTViewManager class]] && !componentDataByName[className]) {
-      RCTComponentData *componentData = [RCTComponentData alloc];
+      EXComponentData *componentData = [EXComponentData alloc];
       if ([componentData respondsToSelector:@selector(initWithManagerClass:bridge:eventDispatcher:)]) {
         // Init method was changed in RN 0.65
         [componentData initWithManagerClass:moduleClass bridge:bridge eventDispatcher:bridge.eventDispatcher];

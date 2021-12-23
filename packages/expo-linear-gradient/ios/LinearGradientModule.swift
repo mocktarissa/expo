@@ -12,6 +12,8 @@ public class LinearGradientModule: Module {
         LinearGradientView()
       }
 
+      self.events("onTest")
+
       prop("colors") { (view: LinearGradientView, colors: [CGColor]) in
         view.gradientLayer.setColors(colors)
       }
