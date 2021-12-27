@@ -22,23 +22,19 @@ This is useful to download and cache fonts, logos, icon images and other assets 
 
 <!-- prettier-ignore -->
 ```javascript
-import React from 'react';
+import React,{useState} from 'react';
 import { Image, Text, View } from 'react-native';
 import { Asset } from 'expo-asset';
 import AppLoading from 'expo-app-loading';
 
-export default class App extends React.Component {
-  state = {
-    isReady: false,
-  };
-
-  render() {
-    if (!this.state.isReady) {
+export default function App () {
+  const [isReady,setIsReady]= useState(false);
+    if (!isReady) {
       /* @info As long as AppLoading is the only leaf/native component that has been mounted, the loading screen will remain visible */
       return (
         <AppLoading
           startAsync={this._cacheResourcesAsync}
-          onFinish={() => this.setState({ isReady: true })}
+          onFinish={() => setIsReady(true)}
           onError={console.warn}
         />
       ); /* @end */
